@@ -1,11 +1,14 @@
 // import React, { Component } from "react";
 // import './App.css';
+//import PopupForm from './components/paginas/PopupForm';
 import React, { useEffect, useState } from "react";
 import axios, { Axios } from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Button } from 'bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import PopupHooks from './PopupHook';
+
 // import { render } from '@testing-library/react';
 
 function Asignartutor() {
@@ -18,7 +21,7 @@ function Asignartutor() {
 
     
   // const [modeldata, setModeldata]= useState([]);
-
+ /*
   const peticionGet = async()=>{
    await axios.get("http://127.0.0.1:8000/api/Personal/")
     .then(response =>{
@@ -29,7 +32,7 @@ function Asignartutor() {
     })
   }
 
-  const peticionPost = async()=>{
+ const peticionPost = async()=>{
     await axios.post('http://127.0.0.1:8001/api/tutores/', JSON.stringify(selectedItem))
     .then(response=>{
       console.log(response);
@@ -39,7 +42,7 @@ function Asignartutor() {
       console.log(selectedItem);
       console.log(error.message);
     });
-}
+}*/
 
 
   const peticionDelete= async()=>{
@@ -77,21 +80,22 @@ function Asignartutor() {
     setTutores(resultadosBusqueda);
   }
 
-  useEffect(()=>{
+  /*useEffect(()=>{
   peticionGet();
-  },[])
+  },[])*/
   
   return ( 
    <React.Fragment>
     <div className="App">
-    <div className="containerInput">
+    <div className="containerInput" >
+    <PopupHooks />
       <input
         className="form-control inputBuscar"
         value={busqueda}
         placeholder="Busqueda por Area Academica o RFC"
         onChange={handleChange}
       />
-      <button className= "btn btn-success">
+      <button className= "btn btn-success" style={{ marginLeft: '1rem' }}>
         <FontAwesomeIcon icon ={faSearch}/>
       </button>
     </div>
@@ -168,8 +172,8 @@ function Asignartutor() {
              
              
             <div className="modal-footer">
-              <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => peticionPost()}>Confirmar</button>
-              {/* funcion para recibir el post  */}
+              {/*<button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => peticionPost()}>Confirmar</button>
+               funcion para recibir el post  */}
               <button type="button" className="btn btn-danger" data-dismiss="modal" onClick={ () => setDisplayModal(false)}>Close</button>
             </div>
              
@@ -180,5 +184,6 @@ function Asignartutor() {
   </React.Fragment>
   );
 }
+
 
 export default Asignartutor;
