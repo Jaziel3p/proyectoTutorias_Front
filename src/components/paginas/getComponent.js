@@ -4,14 +4,16 @@ import PopupHooks from './PopupHook';
 
 
 function GetPrueba2() {
+    const [flag, setflag] = useState(true);
    const [tutores, setTutores] = useState([]);
+   
     
     useEffect(() => {
         axios.get("http://127.0.0.1:8000/api/tutores/")
             .then(res => {
                 const data = res.data;
                 setTutores(data.tutor);
-                console.log(data);
+                console.log("ERROR DE BUCLE");
             })
     }, [tutores]);
             

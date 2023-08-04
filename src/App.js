@@ -6,6 +6,7 @@ import Asignartutor from './components/paginas/Asignartutor';
 import Asignartutorados from './components/paginas/Asignartutorados';
 import PopupHooks from './components/paginas/PopupHook';
 import GetPrueba2 from './components/paginas/getComponent';
+import LoginForm from './components/paginas/login';
 
 function App() {
   const [response, setTutores] = useState([]);
@@ -14,10 +15,10 @@ function App() {
 return(
  <div className='App'>
   <Router>
-    <Navbar/>
-    <Asignartutor/>
-    
-    <GetPrueba2/>
+    {/* <Navbar/> */}
+    <LoginForm/>
+    {/* <Asignartutor/> */}
+    {/* <GetPrueba2/> */}
   </Router>
   </div>
   )
